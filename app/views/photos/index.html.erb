@@ -1,0 +1,12 @@
+<h1>Welcome to Brugram</h1>
+
+<p>Check out these awesome grams from da brus!</p>
+
+<%= link_to "Add a New Brugram", new_photo_path %>
+
+<% @photos.each do |photo| %>
+	<div><%= link_to image_tag(photo.image) %></div>
+	<p>Caption: <%= photo.caption %></p>
+	<p>This brutastic gram was submitted by <%= photo.user.email %></p>
+	<br>
+<% end %>
