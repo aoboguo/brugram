@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    resources :photos
+  end
+
+  resources :photos do
+    resources :comments
+  end
+
 
   root "photos#index"
-  resources :photos
   
 
   # The priority is based upon order of creation: first created -> highest priority.

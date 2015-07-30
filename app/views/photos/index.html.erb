@@ -4,9 +4,21 @@
 
 <%= link_to "Add a New Brugram", new_photo_path %>
 
+<div>
+
 <% @photos.each do |photo| %>
-	<div><%= link_to image_tag(photo.image) %></div>
+	<% if photo.public || current_user == photo.user %>
+		<%= link_to "#{image_tag(photo.image)}".html_safe, photo_path(photo), class: "max-width" %>
+	<% else %>
+		<%= image_tag photo.image, class: "max-width"%> 
+	<%end%>
 	<p>Caption: <%= photo.caption %></p>
 	<p>This brutastic gram was submitted by <%= photo.user.email %></p>
-	<br>
+
+	<% if current_user == photo.user %>
+	 <%= link_to 'Edit Photo', edit_photo_path(photo) %>  <%= link_to 'Destroy',  photo,  method: :delete, data: { confirm: 'Are you sure?' } %> 
+ 	<%end%>
+ 	<br><hr><br>
+
 <% end %>
+</div>

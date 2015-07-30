@@ -1,0 +1,13 @@
+<%= image_tag @photo.image %> <br> 
+<p>Caption: <%= @photo.caption %></p>
+<p>This brutastic gram was submitted by <%= @photo.user.email %></p>
+<br><hr><br>
+
+<strong>Brus' Comments: </strong> <br>
+<%= render @photo.comments %> <br>
+<hr>
+
+<h1> New bruly comment! </h1>
+<%= render 'comments/form' %><br>
+
+<p><%= link_to 'Back, bru!', photos_path %></p>

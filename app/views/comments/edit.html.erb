@@ -1,0 +1,8 @@
+<h1>Editing a comment, bru!</h1>
+
+<%= form_for @comment, url: { :action  => "update "} do |f| %>
+	<strong> current_user </strong>:
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+	<%= f.submit :submit %>
+<% end %>
