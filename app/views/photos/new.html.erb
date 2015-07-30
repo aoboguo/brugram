@@ -1,0 +1,14 @@
+<%= form_for @photo do |f| %>
+	<p><%= f.label :caption %></p>
+	<p><%= f.text_area :caption %></p>
+
+	<p><%= f.label :image %></p>
+	<p><%= f.text_field :image %></p>
+
+	<p><%= f.label :public %></p>
+	<p><%= f.select :public, [true, false]%></p>
+
+	<%= f.submit %>
+
+<% end %>
+
